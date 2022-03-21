@@ -1,0 +1,25 @@
+._ {
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.item {
+    display: inline;
+}
+.link {
+    color: inherit;
+    margin: 3px;
+    padding: 3px 7px;
+    text-decoration: none;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    border-image: initial;
+    border-radius: 3px;
+}
+.selectedLink {
+    border-color: rgba(175, 47, 47, 0.2);
+}
