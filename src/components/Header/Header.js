@@ -2,7 +2,6 @@ import cx from 'classnames';
 
 import styles from './Header.module.css';
 
-
 // 1 - props
 export const Header = ({
     children,
@@ -19,6 +18,10 @@ export const Header = ({
         [className]: !!className
     });
 
+    const handleChange = (event) => {
+        onChange(event)
+    }
+
     // 3 - рендер
     return (
         <header
@@ -29,7 +32,7 @@ export const Header = ({
             <input
                 value={value}
                 onKeyDown={onKeyDown}
-                onChange={onChange}
+                onChange={handleChange}
                 className={styles.input}
                 placeholder="тест"
                 autoFocus
