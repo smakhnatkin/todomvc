@@ -14,10 +14,9 @@ export const Page = ({
 
     // 2 динамика ======================================
 
-    // state компонента
+    // state приложения
     const [completedTodos] = useState([]);
     const [newTodoValue, setNewTodoValue] = useState('');
-    const [selectedTodos] = useState([]);
     const [todos, setTodos] = useState([]);
 
     // динамически, меняющиеся классы компонента
@@ -56,12 +55,10 @@ export const Page = ({
             />
 
             {hasList && <>
-                <Main
+                <Main />
+                <Footer
                     completedTodos={completedTodos}
-                    list={todos}
-                    selectedTodos={selectedTodos}
                 />
-                <Footer />
             </>}
 
         </div>
