@@ -1,0 +1,109 @@
+._ {
+    position: relative;
+    font-size: 24px;
+    border-bottom: 1px solid #ededed;
+}
+
+.row {
+}
+.rowEditing {
+    display: none;
+}
+
+.checkbox {
+    -webkit-appearance: none;
+    appearance: none;
+    background: none;
+    border: none;
+    bottom: 0;
+    height: 40px;
+    margin: auto 0;
+    opacity: 0;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 40px;
+}
+
+.checkboxChecked {
+    appearance: none;
+    border: none;
+    bottom: 0;
+    cursor: pointer;
+    height: 40px;
+    margin: auto 0;
+    opacity: 0;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 40px;
+}
+
+.title {
+    background-image: url(data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23ededed%22%20stroke-width%3D%223%22/%3E%3C/svg%3E);
+    background-position: center left;
+    background-repeat: no-repeat;
+    display: block;
+    line-height: 1.2;
+    padding: 15px 15px 15px 60px;
+    transition: color 0.4s;
+    word-break: break-all;
+}
+
+.titleChecked {
+    background-image: url(data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23bddad5%22%20stroke-width%3D%223%22/%3E%3Cpath%20fill%3D%22%235dc2af%22%20d%3D%22M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z%22/%3E%3C/svg%3E);
+    background-position: center left;
+    background-repeat: no-repeat;
+    color: #d9d9d9;
+    display: block;
+    line-height: 1.2;
+    padding: 15px 15px 15px 60px;
+    text-decoration: line-through;
+    transition: color 0.4s;
+    word-break: break-all;
+}
+
+.deleteButton {
+    appearance: none;
+    background: none;
+    border: 0;
+    bottom: 0;
+    color: #cc9a9a;
+    font-family: inherit;
+    font-size: 30px;
+    font-weight: inherit;
+    height: 40px;
+    margin: auto 0;
+    margin-bottom: 11px;
+    padding: 0;
+    position: absolute;
+    right: 10px;
+    top: 0;
+    transition: color 0.2s ease-out;
+    vertical-align: baseline;
+    width: 40px;
+}
+.deleteButton:after {
+    content: '×';
+}
+
+.input {
+    display: none;
+    position: relative;
+    margin: 0;
+    width: 100%;
+    font-size: 24px;
+    font-family: inherit;
+    font-weight: inherit;
+    line-height: 1.4em;
+    color: inherit;
+    padding: 6px;
+    border: 1px solid #999;
+    box-shadow: inset 0 -1px 5px 0 rgb(0 0 0 / 20%);
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+.inputEditing {
+    display: block;
+}
+

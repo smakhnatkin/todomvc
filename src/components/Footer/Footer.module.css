@@ -1,0 +1,27 @@
+._ {
+    color: rgb(119, 119, 119);
+    height: 20px;
+    text-align: center;
+    padding: 10px 15px;
+    border-top: 1px solid rgb(230, 230, 230);
+}
+._:before  {
+    position: absolute;
+    bottom: 0;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 1px, rgb(246, 246, 246) 0px 8px 0px -3px, rgba(0, 0, 0, 0.2) 0px 9px 1px -3px, rgb(246, 246, 246) 0px 16px 0px -6px, rgba(0, 0, 0, 0.2) 0px 17px 2px -6px;
+    content: "";
+    height: 50px;
+    left: 0;
+    overflow: hidden;
+    right: 0;
+}
+.countRow {
+    float: left;
+    text-align: left;
+}
+.count {
+    font-weight: 300;
+}
+.button {
+    float: right;
+}
