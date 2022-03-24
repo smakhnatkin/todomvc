@@ -1,5 +1,7 @@
+import { useContext } from 'react';
 import cx from 'classnames';
-import { ListItem } from '../../components';
+import {ListItem} from '../../components';
+import { PageContext} from '../../components/Page/Page';
 import { noop } from '../../utils/noop';
 
 import styles from './List.module.css';
@@ -39,3 +41,12 @@ export const List = ({
         );
     })}
 </ul>;
+
+export const TodosList = props => {
+
+    const todos = useContext(PageContext);
+    return <List
+        {...props }
+        list={todos}
+    />
+}

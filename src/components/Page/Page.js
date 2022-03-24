@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { useState, createContext } from 'react';
 import cx from 'classnames';
 import { Footer, Header, Main } from '../../components';
 import { ENTER } from '../../constants/keyCodes'
 
 import styles from  './Page.module.css';
 
+
+export const PageContext = createContext();
+const { Provider } = PageContext;
 
 // 1 входные параметры ==================================
 export const Page = ({
@@ -44,23 +47,25 @@ export const Page = ({
     const hasList = todos.length !== 0;
 
     return (
-        <div
-            className={blockClass}
-            {...props}
-        >
-            <Header
-                onChange={handleChange}
-                onKeyDown={handleKeyDown}
-                value={newTodoValue}
-            />
-
-            {hasList && <>
-                <Main />
-                <Footer
-                    completedTodos={completedTodos}
+        <Provider value={todos}>
+            <div
+                className={blockClass}
+                {...props}
+            >
+                <Header
+                    onChange={handleChange}
+                    onKeyDown={handleKeyDown}
+                    value={newTodoValue}
                 />
-            </>}
 
-        </div>
+                {hasList && <>
+                    <Main />
+                    <Footer
+                        completedTodos={completedTodos}
+                    />
+                </>}
+
+            </div>
+        </Provider>
     )
 }
