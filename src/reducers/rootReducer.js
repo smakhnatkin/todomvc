@@ -1,5 +1,10 @@
 import { combineReducers } from 'redux';
-import simpleReducer from './simpleReducer';
+import completedTodos from './completedTodos';
+import newTodoValue from './newTodoValue';
+import todos from './todos';
+
 export default combineReducers({
-    simpleReducer,
+    completedTodos,
+    newTodoValue,
+    todos,
 });

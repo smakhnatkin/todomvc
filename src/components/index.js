@@ -5,7 +5,7 @@ import { Header } from './Header/Header';
 import { List } from './List/List';
 import { ListItem } from './ListItem/ListItem';
 import { Main } from './Main/Main';
-import { Page } from './Page/Page';
+import { Page, PageContainer } from './Page/Page';
 import { TodosList } from './List/List';
 
 export {
@@ -17,5 +17,6 @@ export {
     ListItem,
     Main,
     Page,
+    PageContainer,
     TodosList,
 };
