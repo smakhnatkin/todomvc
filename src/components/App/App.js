@@ -1,9 +1,16 @@
-import { Page } from '../../components';
+import { PageContainer } from '../../components';
 
 import './App.css';
 
 export const App = () => <section>
-    <Page />
+    <PageContainer />
 </section>
+
+
+
+
+
+
+
 
 

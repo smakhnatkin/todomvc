@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import { List } from '../../components';
+import { TodosList } from '../../components';
 
 import styles from './Main.module.css';
 
@@ -8,7 +8,6 @@ const noop = () => {};
 export const Main = ({
     className,
     label='Выбраны все',
-    list,
 }) => <section
     className={cx(styles._, {
         [className]: !!className
@@ -21,8 +20,7 @@ export const Main = ({
     <label className={styles.toggleAllLabel}>
         {label}
     </label>
-    <List
-        list={list}
+    <TodosList
         onItemChange={noop}
         onItemDeleteClick={noop}
     />

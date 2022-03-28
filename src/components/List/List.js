@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import { ListItem } from '../../components';
+import {ListItem} from '../../components';
 import { noop } from '../../utils/noop';
 
 import styles from './List.module.css';
@@ -39,3 +39,12 @@ export const List = ({
         );
     })}
 </ul>;
+
+export const TodosList = props => {
+
+    const todos = [];
+    return <List
+        {...props }
+        list={todos}
+    />
+}

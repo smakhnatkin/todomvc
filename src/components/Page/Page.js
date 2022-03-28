@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import cx from 'classnames';
 import { Footer, Header, Main } from '../../components';
-import { ENTER } from '../../constants/keyCodes'
+import { ENTER } from '../../constants/keyCodes';
+import { useSelector, useDispatch } from 'react-redux';
+import { setNewTodoValue } from '../../actionCreators/newTodoValue';
 
 import styles from  './Page.module.css';
 
@@ -9,23 +11,24 @@ import styles from  './Page.module.css';
 // 1 входные параметры ==================================
 export const Page = ({
     className,
+    completedTodos,
+    newTodos,
+    newTodoValue,
+    onChange,
+    todos,
     ...props
 }) => {
+
 
     // 2 динамика ======================================
 
     // state приложения
-    const [completedTodos] = useState([]);
-    const [newTodoValue, setNewTodoValue] = useState('');
-    const [todos, setTodos] = useState([]);
+    const [, setTodos] = useState([]);
+
 
     // динамически, меняющиеся классы компонента
     const blockClass = cx(styles._, {[className]: !!className});
 
-    // обработчики событий
-    const handleChange = ({ target: { value } }) => {
-        setNewTodoValue(value)
-    };
     const handleKeyDown = ({ keyCode }) => {
         // если нажата клавиша ENTER,
         if (keyCode === ENTER) {
@@ -49,7 +52,7 @@ export const Page = ({
             {...props}
         >
             <Header
-                onChange={handleChange}
+                onChange={onChange}
                 onKeyDown={handleKeyDown}
                 value={newTodoValue}
             />
@@ -63,4 +66,22 @@ export const Page = ({
 
         </div>
     )
+}
+
+export const PageContainer = () => {
+    const dispatch = useDispatch();
+    const completedTodos = useSelector(({ completedTodos }) => completedTodos);
+    const newTodoValue = useSelector(({ newTodoValue }) => newTodoValue);
+    const todos = useSelector(({ todos }) => todos);
+
+    const handleChange = ({ target: { value } }) => {
+        dispatch(setNewTodoValue(value));
+    }
+
+    return <Page
+        onChange={handleChange}
+        completedTodos={completedTodos}
+        newTodoValue={newTodoValue}
+        todos={todos}
+    />
 }
