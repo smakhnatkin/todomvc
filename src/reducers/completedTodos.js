@@ -1,4 +1,4 @@
-const completedTodos = (state = [], action) => {
-    return state
+const completedTodos = (state = []) => {
+    return state;
 }
 export default completedTodos;

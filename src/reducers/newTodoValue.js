@@ -1,4 +1,4 @@
-import {SET_NEW_TODO_VALUE, SET_TODOS} from "../actionTypes";
+import { SET_NEW_TODO_VALUE, ADD_TODO } from '../constants/actionTypes';
 
 
 const newTodoValue = (state = '', { type, payload }) => {
@@ -6,7 +6,7 @@ const newTodoValue = (state = '', { type, payload }) => {
         case SET_NEW_TODO_VALUE: {
             return payload
         }
-        case SET_TODOS: {
+        case ADD_TODO: {
             return ''
         }
 

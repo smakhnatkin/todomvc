@@ -57,8 +57,11 @@ export const ListItem = ({
     return (
         <li onKeyDown={handleKeyDown} onClick={handleClick} className={blockClass} {...props}>
             {!isEditing && <div className={styles.row}>
-                <input className={styles.checkbox} type="checkbox" />
-                <label className={styles.title}>{value}</label>
+                <input
+                    onChange={() => {}}
+                    value={value}
+                    className={styles.checkbox} type="checkbox" />
+                <label className={styles.title}>{title}</label>
                 <button className={styles.deleteButton} />
             </div>}
 

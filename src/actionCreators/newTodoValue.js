@@ -1,6 +1,8 @@
-import {SET_NEW_TODO_VALUE} from "../actionTypes";
+import {SET_NEW_TODO_VALUE} from "../constants/actionTypes";
 
-export const setNewTodoValue = payload => ({
-    type: SET_NEW_TODO_VALUE,
-    payload
-});
+export const setNewTodoValue = payload => {
+    return {
+        type: SET_NEW_TODO_VALUE,
+        payload
+    }
+};

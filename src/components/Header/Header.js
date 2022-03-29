@@ -18,10 +18,6 @@ export const Header = ({
         [className]: !!className
     });
 
-    const handleChange = (event) => {
-        onChange(event)
-    }
-
     // 3 - рендер
     return (
         <header
@@ -32,7 +28,7 @@ export const Header = ({
             <input
                 value={value}
                 onKeyDown={onKeyDown}
-                onChange={handleChange}
+                onChange={onChange}
                 className={styles.input}
                 placeholder="тест"
                 autoFocus
