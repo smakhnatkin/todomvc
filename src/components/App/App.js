@@ -1,4 +1,4 @@
-import { PageContainer } from '../../components';
+import { PageContainer } from '../../containers';
 
 import './App.css';
 
