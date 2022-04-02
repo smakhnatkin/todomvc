@@ -22,7 +22,7 @@ export const Page = ({
             <HeaderContainer />
 
             {hasList && <>
-                <MainContainer />§
+                <MainContainer />
                 <FooterContainer />
             </>}
         </div>

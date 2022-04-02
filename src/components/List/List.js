@@ -9,6 +9,7 @@ const empty = [];
 export const List = ({
     className,
     list = empty,
+    completed = empty,
     onItemChange = noop,
     onItemDeleteClick = noop,
     ...props
@@ -21,6 +22,7 @@ export const List = ({
         key={value}
         onChange={onItemChange}
         onDelete={onItemDeleteClick}
+        selected={completed.includes(value)}
         title={title}
         value={value}
     />)}

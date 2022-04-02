@@ -1,6 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
 import { useSelector, useDispatch } from 'react-redux';
-import { setNewTodoValue } from '../../actionCreators/newTodoValue';
 import { Header } from '../../components';
 import { ENTER } from '../../constants/keyCodes';
 import { getNewTodoValue } from '../../selectors/newTodoValue';
@@ -14,8 +13,8 @@ export const HeaderContainer = () => {
 
     const handleChange = ({ target: { value } }) => {
 
-        const action = setNewTodoValue(value);
-        dispatch(action);
+        // const action = setNewTodoValue(value);
+        // dispatch(action);
         // запустится такой объект
         // {
         //     type: SET_NEW_TODO_VALUE,

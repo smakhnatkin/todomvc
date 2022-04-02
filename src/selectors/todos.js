@@ -1,6 +1,12 @@
+import { createSelector } from 'reselect'
+
 export const getTodos = ({ todos }) => todos;
 
-export const getHasTodos = (state => {
-    const todos = getTodos(state);
-    return todos.length !== 0;
-});
+export const getCountTodos = createSelector(
+    getTodos,
+    todos => todos.length
+);
+export const getHasTodos = createSelector(
+    getCountTodos,
+    length => length !== 0
+);

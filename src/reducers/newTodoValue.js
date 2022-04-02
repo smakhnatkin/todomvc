@@ -1,7 +1,7 @@
 import { SET_NEW_TODO_VALUE, ADD_TODO } from '../constants/actionTypes';
 
 
-const newTodoValue = (state = '', { type, payload }) => {
+const newTodoValue = (state = 'тест', { type, payload }) => {
     switch (type) {
         case SET_NEW_TODO_VALUE: {
             return payload
