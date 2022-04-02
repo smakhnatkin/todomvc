@@ -1,6 +1,6 @@
-export const todos = () => dispatch => {
-    dispatch({
-        type: 'SIMPLE_ACTION',
-        payload: 'result_of_simple_action'
-    })
-}
+import { ADD_TODO } from '../constants/actionTypes';
+
+export const addTodo = payload => ({
+    type: ADD_TODO,
+    payload
+});

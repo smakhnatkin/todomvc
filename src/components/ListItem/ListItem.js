@@ -10,28 +10,31 @@ const DELAY = 1000;
 
 export const ListItem = ({
     className = '',
-    onChange = noop,
-    title = '',
-    value: initialValue = '',
+    onEditChange = noop,
+    onSelectChange = noop,
+    onDelete = noop,
+    selected,
+    title,
+    value,
     ...props
 }) => {
     // state
     const [isEditing, setIsEditing] = useState(false);
-    const [value, setValue] = useState(initialValue);
+    const [editingValue, setEditingValue] = useState(title);
+
     const ref = useRef(null);
-    const [count, setCount] = useState(0);
+    const [clickCount, setClickCount] = useState(0);
 
     // css классы
-    const blockClass = cx(styles._, {[className]: !!className});
+    const blockClass = cx(styles._, className);
+    const titleClass = cx(styles.title, {
+        [styles.titleChecked]: selected
+    })
 
     // обработчики событий
-    const handleClick = () => {
-        setCount(count + 1);
+    const handleRowClick = () => {
+        setClickCount(clickCount + 1);
     };
-    const handleChange = ({ target: { value } }) => {
-        setValue(value);
-        onChange(value);
-    }
     const handleKeyDown = ({ keyCode }) => {
         if (keyCode === ENTER) {
             setIsEditing(false)
@@ -43,30 +46,44 @@ export const ListItem = ({
         }
     };
 
+    const handleSelectChange = (event) => {
+        const { target: { value } } = event;
+        setClickCount(0);
+        onSelectChange(value);
+    }
+
+    const handleEditChange = ({ target: { value } }) => {
+        setEditingValue(value)
+        onEditChange(value);
+    }
+
     // реализация onDoubleClick в учебных целях
     useEffect(() => {
         setTimeout(() => {
-            setCount(0);
+            setClickCount(0);
         }, DELAY);
 
-        if (count > 1) {
+        if (clickCount > 1) {
             setIsEditing(true)
         }
-    }, [count])
+    }, [clickCount])
 
     return (
-        <li onKeyDown={handleKeyDown} onClick={handleClick} className={blockClass} {...props}>
+        <li onKeyDown={handleKeyDown} onClick={handleRowClick} className={blockClass} {...props}>
             {!isEditing && <div className={styles.row}>
-                <input className={styles.checkbox} type="checkbox" />
-                <label className={styles.title}>{value}</label>
+                <input
+                    onChange={handleSelectChange}
+                    value={value}
+                    className={styles.checkbox} type="checkbox" />
+                <label className={titleClass}>{title}</label>
                 <button className={styles.deleteButton} />
             </div>}
 
             {isEditing && <ClickOutside onClickOutside={handleClickOutside}>
                 <input ref={ref}
                     className={styles.input}
-                    onChange={handleChange}
-                    value={value}
+                    onChange={handleEditChange}
+                    value={editingValue}
                 />
             </ClickOutside>}
         </li>
